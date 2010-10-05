@@ -1,0 +1,4 @@
+This will get the current messages from a SocialCast stream, via JSON (or XML). 
+- Will call it @element as 'messages' is term used by SC.
+It will display them, with extracts of detail, in a table.
+It will allow selection of a sample of them, which it will then email to the supplied address.

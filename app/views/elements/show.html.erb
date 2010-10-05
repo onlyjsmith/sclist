@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @element.title %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%= @element.author %>
+</p>
+
+<p>
+  <b>Selected:</b>
+  <%= @element.selected %>
+</p>
+
+
+<%= link_to 'Edit', edit_element_path(@element) %> |
+<%= link_to 'Back', elements_path %>
