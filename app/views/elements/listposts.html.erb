@@ -1,4 +1,6 @@
 <% @response.each do |item| %>
 	<p><%= item['text'] %></p>
+	<p><strong><%= item['user']['screen_name'] %></strong></p>
+	<p></p>
 <% end %>
 
