@@ -83,9 +83,15 @@ class ElementsController < ApplicationController
   end
   
   include HTTParty
+  # format :json
+  # base_uri 'https://impacti-org.socialcast.com'
+  # basic_auth 'jonathan@impacti.org', 'impactful'
   
   def listposts
-    @response = HTTParty.get('http://twitter.com/statuses/public_timeline.json')
+    @auth = {:username => 'jonathan@impacti.org', :password => 'impactful'}
+    options = {:basic_auth => @auth }
+    @response = HTTParty.get('https://impacti-org.socialcast.com/api/messages.json', options)
+    puts "done connecting"
     # @response
   end
   

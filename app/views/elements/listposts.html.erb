@@ -1,6 +1,3 @@
-<% @response.each do |item| %>
-	<p><%= item['text'].blank? ? "Blank" : item['text'] %></p>
-	<p><strong><%= item['user']['screen_name'] %></strong></p>
-	<p></p>
+<% @response['messages'].each do |item| %>
+	<p>[] <%= item['body'] %></p>
 <% end %>
-
