@@ -1,3 +1,11 @@
-<% @response['messages'].each do |item| %>
-	<p>[] <%= item['body'] %></p>
+<% form_tag sendposts_path do %>
+	<ul>
+		<% @response['messages'].each do |item| %>
+			<li>
+			<%= check_box_tag "messages_ids[]", item['id'] %>
+			<%= item['body'] %>
+			</li>
+		<% end %>
+	</ul>
+	<%= submit_tag "Mark to send digest" %>
 <% end %>

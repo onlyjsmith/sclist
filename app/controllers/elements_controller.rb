@@ -95,6 +95,12 @@ class ElementsController < ApplicationController
     # @response
   end
   
+  def sendposts
+    puts "SENDING... - not really"
+    @sendlist = params[:message_ids]
+    # @response['messages'].where(['id'] => params[:message_ids])
+  end
+  
 end
 
 # class ConsumeController < ApplicationController

@@ -1,5 +1,6 @@
 Digestable::Application.routes.draw do
   match '/listposts/' => 'elements#listposts'
+  match '/sendposts/' => 'elements#sendposts'
   resources :elements
 
   # The priority is based upon order of creation:
