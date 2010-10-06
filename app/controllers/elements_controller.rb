@@ -96,8 +96,14 @@ class ElementsController < ApplicationController
   end
   
   def sendposts
-    puts "SENDING... - not really"
-    @sendlist = params[:message_ids]
+    id_list = params[:message_ids]
+    @sendlist =  ["NOTHING","REALLY"]
+    puts
+    puts "@response = " + @response.inspect
+    puts "@sendlist = " + @sendlist.inspect
+    puts "List IDs  = " + params[:message_ids].inspect
+    
+    # Notifier.email_digest(@sendlist).deliver
     # @response['messages'].where(['id'] => params[:message_ids])
   end
   

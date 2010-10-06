@@ -1,8 +1,10 @@
-<% form_tag sendposts_path do %>
+<h2>Select messages to include in digest</h2>
+
+<%= form_tag sendposts_path do %>
 	<ul>
 		<% @response['messages'].each do |item| %>
 			<li>
-			<%= check_box_tag "messages_ids[]", item['id'] %>
+			<%= check_box_tag "message_ids[]", item['id'] %>
 			<%= item['body'] %>
 			</li>
 		<% end %>
