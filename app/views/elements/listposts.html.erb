@@ -1,5 +1,7 @@
 <h2>Select messages to include in digest</h2>
 
+
+
 <%= form_tag sendposts_path do %>
 	<ul>
 		<% @response['messages'].each do |item| %>
@@ -11,3 +13,5 @@
 	</ul>
 	<%= submit_tag "Mark to send digest" %>
 <% end %>
+
+

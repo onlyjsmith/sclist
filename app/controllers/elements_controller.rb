@@ -83,44 +83,25 @@ class ElementsController < ApplicationController
   end
   
   include HTTParty
-  # format :json
-  # base_uri 'https://impacti-org.socialcast.com'
-  # basic_auth 'jonathan@impacti.org', 'impactful'
-  
+
   def listposts
-    @auth = {:username => 'jonathan@impacti.org', :password => 'impactful'}
-    options = {:basic_auth => @auth }
-    @response = HTTParty.get('https://impacti-org.socialcast.com/api/messages.json', options)
-    puts "done connecting"
-    # @response
+    source = Consume.new
+    source.get_data
+    session[:content] = source.content
+    @response = source.content
+    puts session[:content].first
   end
   
   def sendposts
-    id_list = params[:message_ids]
-    @sendlist =  ["NOTHING","REALLY"]
-    puts
-    puts "@response = " + @response.inspect
-    puts "@sendlist = " + @sendlist.inspect
-    puts "List IDs  = " + params[:message_ids].inspect
+    @response = session[:content]
+    puts "Decoded:" + @response['messages'].last['id'].inspect
+    # puts "As it was:" + @response.inspect
+    @send_list = @response
     
-    # Notifier.email_digest(@sendlist).deliver
-    # @response['messages'].where(['id'] => params[:message_ids])
+    
+    # Notifier.email_digest(@send_list)#.deliver
   end
   
 end
 
-# class ConsumeController < ApplicationController
-# 
-#   include HTTParty
-#   format :json
-#   base_uri 'impacti-org.socialcast.com'
-#   basic_auth 'jonathan@impacti.org', 'impactful'
-# 
-#   def fetch
-#     @response = "hello"
-#     response = Consume.get('/api/messages.json')
-#         response['messages'].each do |item|
-#           puts item['body'][0..11] +" <> "+ item['id'].to_s
-#         end
-#   end
-# end
+
