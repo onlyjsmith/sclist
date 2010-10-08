@@ -7,7 +7,7 @@
 		<% @response['messages'].each do |item| %>
 			<li>
 			<%= check_box_tag "message_ids[]", item['id'] %>
-			<%= item['body'] %>
+			<%= item['id'] %>
 			</li>
 		<% end %>
 	</ul>
