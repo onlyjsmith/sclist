@@ -89,26 +89,19 @@ class ElementsController < ApplicationController
     source.get_data
     session[:content] = source.content
     @response = source.content
-    # puts session[:content].first
   end
   
   def sendposts
-    @response = session[:content]
-    # puts "Decoded:" + @response['messages'].last['id'].inspect
-    puts "Keys" + @response['messages'].first['id'].inspect
-    # puts "As it was:" + @response.inspect
-    @send_list = []
-    puts "params: "
-    puts params[:message_ids]
-    @response['messages'].each do |item|
-      if params[:message_ids].include? (item['id'].to_i)
-        @send_list << item
-        puts item['id'].inspect
-      else
-        puts "nothing"
-      end
-    end
-    
+    @content = session[:content]
+    @message_ids = params[:message_ids]
+    # @message_ids = ["3683410"]
+    @message_ids_int = @message_ids.collect {|x| x.to_i}
+    # @testmessages = @content['messages'].select {|c| @message_ids.include?(c['id'])}
+
+    @select_msgs = @content
+    @select_msgs['messages'].reject! {|c| @message_ids.include? (c['id'])}
+
+
     
     # Notifier.email_digest(@send_list)#.deliver
   end

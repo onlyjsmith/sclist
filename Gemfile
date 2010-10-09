@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.0'
 gem 'httparty', '0.6.1'
+# gem 'ruby-debug19', :require => 'ruby-debug'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

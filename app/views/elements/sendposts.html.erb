@@ -1,9 +1,11 @@
 <p>Just sent this</p>
+<%= debug @message_ids_int %>
+<%= debug @content['messages'].reject {|c| @message_ids_int.include? (c['id'])} %>
 
 <ul>
-	<% @send_list.each do |item| %>
+	<% @select_msgs['messages'].each do |item| %>
 		<li>
-		<%= item['id'] %>
+		<%= item['body']%>
 		</li>
 	<% end %> 
 </ul>
