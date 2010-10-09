@@ -1,9 +1,8 @@
 <p>Just sent this</p>
-<%= debug @message_ids_int %>
-<%= debug @content['messages'].reject {|c| @message_ids_int.include? (c['id'])} %>
+
 
 <ul>
-	<% @select_msgs['messages'].each do |item| %>
+	<% @select_msgs.each do |item| %>
 		<li>
 		<%= item['body']%>
 		</li>

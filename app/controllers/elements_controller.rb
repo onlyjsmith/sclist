@@ -94,16 +94,12 @@ class ElementsController < ApplicationController
   def sendposts
     @content = session[:content]
     @message_ids = params[:message_ids]
-    # @message_ids = ["3683410"]
     @message_ids_int = @message_ids.collect {|x| x.to_i}
-    # @testmessages = @content['messages'].select {|c| @message_ids.include?(c['id'])}
-
-    @select_msgs = @content
-    @select_msgs['messages'].reject! {|c| @message_ids.include? (c['id'])}
+    @select_msgs = @content['messages'].select {|c| @message_ids_int.include? (c['id'])}
 
 
     
-    # Notifier.email_digest(@send_list)#.deliver
+    Notifier.email_digest(@select_msgs).deliver
   end
   
 end
