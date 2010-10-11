@@ -86,13 +86,13 @@ class ElementsController < ApplicationController
 
   def listposts
     source = Consume.new
-    source.get_data
-    session[:content] = source.content
-    @response = source.content
+    source.get_messages
+    session[:messages] = source.messages
+    @response = source.messages
   end
   
   def sendposts
-    @content = session[:content]
+    @content = session[:messages]
     @message_ids = params[:message_ids]
     @message_ids_int = @message_ids.collect {|x| x.to_i}
     @select_msgs = @content['messages'].select {|c| @message_ids_int.include? (c['id'])}

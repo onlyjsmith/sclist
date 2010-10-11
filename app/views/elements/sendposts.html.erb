@@ -4,7 +4,7 @@
 <ul>
 	<% @select_msgs.each do |item| %>
 		<li>
-		<%= item['body']%>
+		<%= item['body']%>(<%= item['created_at'] %>)
 		</li>
 	<% end %> 
 </ul>
