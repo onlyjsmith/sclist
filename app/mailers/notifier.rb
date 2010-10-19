@@ -8,7 +8,6 @@ class Notifier < ActionMailer::Base
   #
   def email_digest(list)
     @id_list = list
-    # puts @id_list.inspect
     mail :to => "twiga.jon+sc@gmail.com", :subject => "Digest test"
     puts "Sent"
   end

@@ -20,6 +20,10 @@ div.field, div.actions {
   margin-bottom: 10px;
 }
 
+ul {
+	list-style-type: none;
+}
+
 #notice {
   color: green;
 }
