@@ -1,9 +1,14 @@
-<p>Just sent this</p>
-
-<ul>
-	<% @select_msgs.each do |item| %>
-		<li>
-		<%= item['body']%>(<%= item['created_at'] %>)
-		</li>
-	<% end %> 
-</ul>
+<div id="header">
+<h1>Just sent this</h1>
+</div>
+<div id="content">
+	<div id="right">
+		<ul>
+			<% @select_msgs.each do |item| %>
+				<li>
+				<%= item['body']%>(<%= item['created_at'] %>)
+				</li>
+			<% end %> 
+		</ul>
+	</div>
+</div>

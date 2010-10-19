@@ -1,15 +1,29 @@
-<h2>Select messages to include in digest</h2>
-
-<%= form_tag sendposts_path do %>
-	<ul>
-		<% @response['messages'].each do |item| %>
-			<li>
-			<%= check_box_tag "message_ids[]", item['id'] %>
-			<%= item['body'] %>
-			</li>
+<div id="header">
+<h1>Select messages</h1>
+ <!-- <div id="menu">
+  <ul id="nav">
+   <li><a href="#">Home</a></li>
+   <li><a href="#">About Me</a></li>
+   <li><a href="#">Archives</a></li>
+   <li><a href="#">Sitemap</a></li>
+  </ul>
+ </div> -->
+</div>
+<div id="content">
+	<div id="right">
+		<%= form_tag sendposts_path do %>
+			<ul>
+				<% @response['messages'].each do |item| %>
+					<li>
+					<%= check_box_tag "message_ids[]", item['id'] %>
+					<%= item['body'] %>
+					</li>
+				<% end %>
+			</ul>
+			<%= submit_tag "Mark to send digest" %>
 		<% end %>
-	</ul>
-	<%= submit_tag "Mark to send digest" %>
-<% end %>
-
-
+	</div>
+	<div id="left">
+		<h3>This page takes the latest (all) messages from SocialCast, and lists them. Select the messages you want, and they will be emailed to you.</h3>
+	</div>
+</div>
