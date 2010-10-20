@@ -9,11 +9,13 @@
   </ul>
  </div> -->
 </div>
+
+
 <div id="content">
 	<div id="right">
 		<%= form_tag sendposts_path do %>
 			<ul>
-				<% @response['messages'].each do |item| %>
+				<% @messages['messages'].each do |item| %>
 					<li>
 					<%= check_box_tag "message_ids[]", item['id'] %>
 					<%= item['body'] %>
@@ -25,5 +27,16 @@
 	</div>
 	<div id="left">
 		<h3>This page takes the latest (all) messages from SocialCast, and lists them. Select the messages you want, and they will be emailed to you.</h3>
+		<div></br>
+			<p>You are a member of these groups:</p>
+			<ul>
+				<% @groups['group_memberships'].each do |g| %>
+					<li>
+						<%= g['group']['groupname'] %>
+					</li>
+				<% end %>	
+			</ul>			
+			
+		</div>
 	</div>
 </div>

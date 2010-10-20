@@ -87,8 +87,11 @@ class ElementsController < ApplicationController
   def listposts
     source = Consume.new
     source.get_messages
+    source.get_groups
     session[:messages] = source.messages
-    @response = source.messages
+    session[:groups] = source.groups
+    @messages = source.messages
+    @groups = source.groups
   end
   
   def sendposts
