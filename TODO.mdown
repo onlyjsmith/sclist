@@ -5,3 +5,4 @@
 1. Select groups or all messages.
 1. Add authentication and server details in setup page
 1. Add number of comments / likes to the emailed digest list
+1. Make it send emails from Heroku - why is it broken?!
