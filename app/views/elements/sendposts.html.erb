@@ -6,7 +6,8 @@
 		<ul>
 			<% @select_msgs.each do |item| %>
 				<li>
-				<%= item['body']%>(<%= item['created_at'] %>)
+				<!-- <%= item['body']%>(<%= item['created_at'] %>) -->
+						<a href= "<%= item['permalink_url'] %>" %><%= item['body'] %></a>
 				</li>
 			<% end %> 
 		</ul>

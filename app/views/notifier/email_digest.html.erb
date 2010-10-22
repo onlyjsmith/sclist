@@ -3,7 +3,7 @@
 <ul>
 	<% @id_list.each do |item| %>
 		<li>
-		<%= item['body'] %>
+			<a href= "<%= item['permalink_url'] %>" %><%= item['body'] %></a>
 		</li>
 	<% end %> 
 </ul>

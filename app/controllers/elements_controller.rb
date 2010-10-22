@@ -99,7 +99,7 @@ class ElementsController < ApplicationController
     @message_ids = params[:message_ids]
     @message_ids_int = @message_ids.collect {|x| x.to_i}
     @select_msgs = @content['messages'].select {|c| @message_ids_int.include? (c['id'])}
-    #Notifier.email_digest(@select_msgs).deliver
+    Notifier.email_digest(@select_msgs).deliver
   end
   
 end
