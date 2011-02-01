@@ -12,11 +12,6 @@ class Consume
     @options = {:basic_auth => @auth}
   end
   
-  def auth2
-    @root_url = "unep--wcmc-org"
-    @auth = {:username => "jonathan.smith@unep-wcmc.org", :password => 'whocar22'}
-    @options = {:basic_auth => @auth}
-  end
 
 
   def get_messages
